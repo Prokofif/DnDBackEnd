@@ -40,10 +40,11 @@ app.use(function (req, res, next) {
 
 let client = mongoDB.initiate(uri);
 
-app.get('/getUserId', userController.getUserById)//todo
+app.get('/getUserByName/:firstName', userController.getUserByName)//todo
 app.get('/getUsers', userController.getUsers)
 app.get('/deleteUsers', userController.deleteUsers)
-app.post('/user/createUser', userController.createUser)
+app.post('/createUser', userController.createUser)
+app.put('/updateUser', userController.updateUser)
 
 
 let server = app.listen(process.env.PORT || 3000, function () { 

@@ -69,6 +69,7 @@ exports.findMultipleDocuments = async (client, filter, database, collection) => 
 }
 
 exports.updateDocument = async (client, filter, update, database, collection, upsertOption = false) => {
+    console.log("UPDATE---------------------------------", update)
     const result = await client.db(database).collection(collection)
         .updateOne(filter, { $set: update }, { upsert: upsertOption });
     console.log(`${result.matchedCount} document(s) matched the query criteria.`);
